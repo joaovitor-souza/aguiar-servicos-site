@@ -1,0 +1,107 @@
+/* MENU X */
+
+.navbar {
+    background-color: var(--cor-primary);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.menu-icon {
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Linhas superior e inferior */
+.menu-icon::before,
+.menu-icon::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-icon::before {
+    top: -8px;
+}
+
+.menu-icon::after {
+    top: 8px;
+}
+
+/* Quando o menu estiver aberto */
+.navbar-toggler:not(.collapsed) .menu-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler:not(.collapsed) .menu-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler:not(.collapsed) .menu-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.navbar-toggler {
+    width: 40px;
+    height: 35px;
+
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: none;
+    transition: border-color 0.2s ease;
+}
+
+/* Quando clicar ou receber foco */
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+    border-color: #555;
+    box-shadow: none;
+}
+
+/* Remover o efeito padrão também no estado ativo */
+.navbar-toggler:active {
+    box-shadow: none;
+}
+
+
+/* Apenas dispositivos menores que 992px */
+@media (max-width: 991.98px) {
+
+    .navbar-collapse {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 100%;
+
+        background-color: #fff;
+        /* padding: 20px; */
+
+        z-index: 1000;
+    }
+
+}
+
+.navbar-menu-content {
+    padding-inline: 20px;
+}
+
+.navbar-menu-content .nav-item {
+    /* background-color: red; */
+    padding: 4px 0;
+    margin: 2px;
+    border-bottom: 1px solid var(--cor-third);
+}
